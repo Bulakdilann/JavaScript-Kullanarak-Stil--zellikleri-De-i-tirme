@@ -1,0 +1,220 @@
+<html>
+<head>
+    <title>Final Ödevi</title>
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=IBM+Plex+Sans+Condensed&family=Notable&family=Pangolin&family=Yellowtail&display=swap" rel="stylesheet">
+    <style>
+	
+
+body{background-image:url(arkaplan.png);
+     background-repeat:repeat-y;}
+
+
+.kutu{
+      width:800;
+	  height:800;
+	  background-color:white;
+	  margin:auto;
+	  border:3px solid black;
+	  }
+
+textarea {
+          resize: none;
+		  border:2px solid purple;
+		   }
+.yazı{width:750;
+	  height:120;
+	  background-color:white;
+	  margin:auto;
+	  border:2px solid purple;}
+.yazıyanı{width:100;
+	  height:120;
+	  background-color:#add8e6;
+	  color:black;
+	  position:absolute;
+	  right:299px;
+	   
+	  }
+.uzunluk {
+  width: 25%;
+  position:relative;
+  left:200;
+  top:-45px;
+}
+
+
+.çizgi{
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 3px;
+  background: #d3d3d3;
+  outline: none;
+
+}
+
+
+
+.çizgi::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: purple;
+  cursor: pointer;
+}
+
+
+	  
+.border{width:750;
+	  height:120;
+	  background-color:white;
+	  margin:auto;
+	  border:2px solid purple;}
+.borderyanı{width:100;
+	  height:120;
+	  background-color:#add8e6;
+	  color:black;
+	  position:absolute;
+	  right:299px;
+	   
+	  }
+select{width:80;
+     height:30;
+	 position:absolute;
+	 left:315;}
+
+ #sonhali{width:750;
+	  height:250;
+	  background-color:white;
+	   margin:auto;
+	 border:2px solid purple;
+	 font-family:open sans-serif;
+	  overflow-x: scroll
+	  hidden; 
+	  overflow-y: scroll;}
+	  
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+<div class="kutu">
+<strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:20; top:15;">Metin</strong></br></br>
+<center><textarea id="textarea" onkeyup="yaz()" name="textarea" rows="8" cols="105"></textarea></center></br>
+<div class="yazı"><div class="yazıyanı"><strong><p style="-webkit-transform: rotate(-90deg);"> YAZI </p></strong></div>
+<strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:20; top:15;">Yazı Tipi</strong></br></br>
+<form action="/action_page.php">
+  <select id="yazıdegis" name="yazıstili"  onchange="font()">
+    <option value="open sans-serif">Open Sans</option>
+    <option value="IBM Plex Sans Condensed">IBM Plex Sans Condensed</option>
+    <option value="Amatic SC">Amatic SC</option>
+    <option value="Notable">Notable</option>
+    <option value="Pangolin">Pangolin</option>
+	<option value="Yellowtail">Yellowtail</option>
+	
+  </select>
+  
+</form>
+<div class="uzunluk"><strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:20; top:15;">Yazı Boyutu</strong></br></br>
+<input type="range" min="10" max="100" id="yazıboyutu" class="çizgi" value="12"></div>
+<strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:500; top:-95;">Yazı Rengi</strong></br></br>
+<input style ="position:relative;
+      left:500;
+      top:-115px;" type="color" id="renk" name="renk"  onchange="yazırengi()"
+           value="#800080">
+
+
+
+
+
+
+</div></br></br>
+
+<div class="border"><div class="borderyanı"><strong><p style="-webkit-transform: rotate(-90deg); position:relative;left:-10;top:30; "> ARKAPLAN </p></strong>
+<strong><p style="-webkit-transform: rotate(-90deg); position:relative; left:10; top:-40; "> & </p></strong>
+<strong><p style="-webkit-transform: rotate(-90deg); position:relative;left:30; top:-55; "> ÇİZGİ </p></strong>
+</div>
+<strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:20; top:15;">Border Stili</strong></br></br>
+<form action="/action_page.php">
+  <select id="stildegis" name="stildegis"  onchange="divstil()">
+    <option value="solid">Solid</option>
+    <option value="dotted">Dotted </option>
+    <option value="dashed">Dashed</option>
+    <option value="double">Double</option>
+   
+	</select>
+  
+</form>
+<div class="uzunluk"><strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:20; top:15;">Border Kalınlığı</strong></br></br>
+<input type="range" min="1" max="10" id="borderboyutu" class="çizgi" value="2" ></div>
+
+<strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:500; top:-95;">Border Rengi</strong></br></br>
+<input style ="position:relative;
+      left:500;
+      top:-115px;" type="color" id="renk2" name="renk2"  onchange="borderrengi()"
+           value="#800080">
+<strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:450; top:-80;">Arkaplan Rengi</strong></br></br>		   
+<input style ="position:relative;
+      left:500;
+      top:-100px;" type="color" id="renk3" name="renk3"  onchange="arkaplanrengi()"
+           value="#800080">
+
+</div>
+
+
+
+
+<strong style="color:purple; font-size:18px;font-family: Arial, Helvetica, sans-serif; position:relative; left:20; top:15;">Sonuç:</strong><br><br>
+
+<div id="sonhali"><span id="sonuc"></span></div>
+
+ <script>
+    var a
+	
+        function yaz(){
+		     a=(document.getElementById("textarea").value);
+             document.getElementById('sonuc').innerHTML=a
+            }
+		 yazıboyutu.oninput=function(){
+            document.getElementById("sonuc").style.fontSize=yazıboyutu.value+"px";
+        }
+		
+		 borderboyutu.oninput=function(){
+            document.getElementById("sonhali").style.borderWidth=borderboyutu.value+"px";
+        }
+
+		function font(){
+		let yazıdegis=document.getElementById('yazıdegis'),
+		degis1=document.getElementById('sonuc');
+		degis1.style.fontFamily=yazıdegis.value;}
+		
+		function divstil(){
+		let stildegis=document.getElementById('stildegis'),
+		degis2=document.getElementById('sonhali');
+		degis2.style.borderStyle=stildegis.value;}
+		
+		function yazırengi(){
+            document.getElementById("sonuc").style.color=document.getElementById("renk").value;
+        }
+		function borderrengi(){
+            document.getElementById("sonhali").style.borderColor=document.getElementById("renk2").value;
+        }
+		
+		function arkaplanrengi(){
+            document.getElementById("sonhali").style.backgroundColor=document.getElementById("renk3").value;
+        }
+  
+
+		
+		
+ </script>       
+   
+</div>
+
+</body>
+</html>
